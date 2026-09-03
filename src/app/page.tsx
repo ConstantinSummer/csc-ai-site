@@ -85,7 +85,7 @@ export default function HomePage() {
                 href={`/services#${pillar.slug}`}
                 className="card-surface group flex h-full flex-col rounded-2xl p-6 transition-colors hover:border-accent-blue"
               >
-                <PillarIcon slug={pillar.slug} colorVar={pillar.accent} />
+                <PillarIcon slug={pillar.slug} size="sm" />
                 <h3 className="mt-5 text-lg font-semibold">{pillar.title}</h3>
                 <p className="mt-2 text-sm text-muted">
                   {pillar.shortDescription}

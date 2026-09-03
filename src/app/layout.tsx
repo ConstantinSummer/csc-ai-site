@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import TechStack from "@/components/TechStack";
 import JsonLd from "@/components/JsonLd";
 import { siteConfig } from "@/lib/site";
 
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <Header />
         <main className="flex-1">{children}</main>
+        <TechStack />
         <Footer />
       </body>
     </html>

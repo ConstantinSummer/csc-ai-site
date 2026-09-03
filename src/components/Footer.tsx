@@ -72,6 +72,18 @@ export default function Footer() {
           © {new Date().getFullYear()} {siteConfig.founderNameEn} — CSC AI
           Solutions. Με επιφύλαξη παντός δικαιώματος.
         </p>
+        <p className="container-page mt-1 text-xs text-muted">
+          Εικονίδια υπηρεσιών από{" "}
+          <a
+            href="https://game-icons.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+          >
+            game-icons.net
+          </a>{" "}
+          (Lorc, Sbed) — CC BY 3.0.
+        </p>
       </div>
     </footer>
   );

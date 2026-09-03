@@ -76,11 +76,7 @@ export default function ServicesPage() {
             >
               <Reveal>
                 <div className="flex items-start gap-6">
-                  <PillarIcon
-                    slug={pillar.slug}
-                    colorVar={pillar.accent}
-                    size="xl"
-                  />
+                  <PillarIcon slug={pillar.slug} size="lg" />
                   <div>
                     <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
                       {pillar.title}
@@ -116,8 +112,7 @@ export default function ServicesPage() {
                 {scenario && (
                   <div className="mt-6 rounded-2xl border border-dashed border-border p-5">
                     <p className="text-xs font-semibold uppercase tracking-widest text-muted">
-                      Ενδεικτικό σενάριο — {scenario.label} (υποθετικό
-                      παράδειγμα, όχι πραγματικός πελάτης)
+                      Ενδεικτικό σενάριο — {scenario.label}
                     </p>
                     <p className="mt-3 text-sm text-muted">
                       <span className="font-semibold text-foreground">
