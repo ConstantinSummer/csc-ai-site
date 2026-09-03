@@ -143,7 +143,7 @@ export async function POST(req: NextRequest) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "CSC AI Solutions <onboarding@resend.dev>",
+        from: "CSC AI Solutions <info@csc.com.gr>",
         to: [TO_EMAIL],
         reply_to: email || undefined,
         subject,
