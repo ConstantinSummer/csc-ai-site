@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import GlowOrb from "@/components/GlowOrb";
 import PillarIcon from "@/components/PillarIcon";
@@ -141,14 +142,12 @@ export default function ServicesPage() {
                   Για ποιον
                 </p>
                 <p className="mt-2 text-sm text-muted">{pillar.audience}</p>
-                <a
-                  href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(
-                    pillar.title
-                  )}`}
+                <Link
+                  href={`/contact?topic=${pillar.slug}`}
                   className="mt-6 inline-flex whitespace-nowrap rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-90"
                 >
                   {pillar.cta} →
-                </a>
+                </Link>
               </Reveal>
             </div>
           );

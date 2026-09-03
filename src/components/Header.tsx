@@ -30,7 +30,7 @@ export default function Header() {
         </nav>
 
         <Link
-          href="/#contact"
+          href="/contact"
           className="rounded-full border border-border bg-surface px-4 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent-blue sm:text-sm"
         >
           Επικοινωνία

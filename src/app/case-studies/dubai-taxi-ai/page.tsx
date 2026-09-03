@@ -381,12 +381,12 @@ export default function DubaiTaxiCaseStudyPage() {
             </Link>{" "}
             ή επικοινωνήστε απευθείας.
           </p>
-          <a
-            href={`mailto:${siteConfig.email}`}
+          <Link
+            href="/contact"
             className="mt-8 inline-flex whitespace-nowrap rounded-full bg-foreground px-8 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
           >
             Επικοινωνήστε μαζί μας
-          </a>
+          </Link>
         </div>
       </Reveal>
     </>

@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { siteConfig } from "@/lib/site";
+import { ObfuscatedEmail, ObfuscatedPhone } from "@/components/ObfuscatedContact";
 
 export default function Footer() {
   return (
@@ -20,20 +22,18 @@ export default function Footer() {
           <p className="text-sm font-semibold text-foreground">Επικοινωνία</p>
           <ul className="mt-2 space-y-1 text-sm text-muted">
             <li>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="transition-colors hover:text-foreground"
+              <Link
+                href="/contact"
+                className="font-medium text-foreground underline underline-offset-4 transition-colors hover:text-accent-cyan"
               >
-                {siteConfig.email}
-              </a>
+                Φόρμα επικοινωνίας →
+              </Link>
             </li>
             <li>
-              <a
-                href={`tel:${siteConfig.phoneHref}`}
-                className="transition-colors hover:text-foreground"
-              >
-                {siteConfig.phone}
-              </a>
+              <ObfuscatedEmail className="transition-colors hover:text-foreground" />
+            </li>
+            <li>
+              <ObfuscatedPhone className="transition-colors hover:text-foreground" />
             </li>
             <li>
               <a

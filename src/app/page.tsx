@@ -3,7 +3,7 @@ import HeroCanvas from "@/components/HeroCanvas";
 import GlowOrb from "@/components/GlowOrb";
 import PillarIcon from "@/components/PillarIcon";
 import Reveal from "@/components/Reveal";
-import { credentials, servicePillars, siteConfig } from "@/lib/site";
+import { credentials, servicePillars } from "@/lib/site";
 
 export default function HomePage() {
   return (
@@ -36,14 +36,12 @@ export default function HomePage() {
               στρατηγική μέχρι τον κώδικα.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(
-                  "Ραντεβού — CSC AI Solutions"
-                )}`}
+              <Link
+                href="/contact"
                 className="whitespace-nowrap rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
               >
                 Κλείστε ένα πρώτο ραντεβού →
-              </a>
+              </Link>
               <Link
                 href="/services"
                 className="whitespace-nowrap rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-accent-blue"
@@ -149,12 +147,12 @@ export default function HomePage() {
           διαφορά στην επιχείρησή σας.
         </h2>
         <div className="mt-8 flex justify-center">
-          <a
-            href={`mailto:${siteConfig.email}`}
+          <Link
+            href="/contact"
             className="whitespace-nowrap rounded-full bg-foreground px-8 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
           >
             Επικοινωνήστε μαζί μας
-          </a>
+          </Link>
         </div>
       </Reveal>
     </>
