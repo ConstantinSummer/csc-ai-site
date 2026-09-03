@@ -25,17 +25,6 @@ const professionalExperience = [
   "Συνδυάζω την ακαδημαϊκή γνώση με τη διεθνή εμπειρία υλοποίησης, μετατρέποντας σύνθετες τεχνολογίες σε πρακτικές λύσεις με συγκεκριμένο και μετρήσιμο επιχειρηματικό αποτέλεσμα.",
 ];
 
-const leadership = [
-  {
-    title: "Εκπαιδευτής Σχολής Ηγεσίας",
-    detail: "Ειδικές Δυνάμεις — στρατιωτική θητεία",
-  },
-  {
-    title: "Εθελοντής εκπαιδευτής πληροφορικής",
-    detail: "Για μαθητές με ειδικές εκπαιδευτικές ανάγκες",
-  },
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -103,24 +92,6 @@ export default function AboutPage() {
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="border-t border-border">
-        <div className="container-page py-20">
-          <Reveal className="max-w-3xl">
-            <h2 className="text-sm font-semibold uppercase tracking-widest text-accent-cyan">
-              Ηγεσία & Κοινωνική Προσφορά
-            </h2>
-            <ul className="mt-6 space-y-6">
-              {leadership.map((item) => (
-                <li key={item.title}>
-                  <p className="font-semibold">{item.title}</p>
-                  <p className="mt-1 text-sm text-muted">{item.detail}</p>
-                </li>
-              ))}
-            </ul>
           </Reveal>
         </div>
       </section>

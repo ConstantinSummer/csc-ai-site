@@ -160,13 +160,15 @@ export default function PillarIcon({
 }: {
   slug: string;
   colorVar: string;
-  size?: "md" | "lg";
+  size?: "md" | "lg" | "xl";
 }) {
   const Icon = ICONS[slug];
   if (!Icon) return null;
 
-  const box = size === "lg" ? "h-16 w-16" : "h-14 w-14";
-  const iconSize = size === "lg" ? "h-9 w-9" : "h-8 w-8";
+  const box =
+    size === "xl" ? "h-20 w-20" : size === "lg" ? "h-16 w-16" : "h-14 w-14";
+  const iconSize =
+    size === "xl" ? "h-11 w-11" : size === "lg" ? "h-9 w-9" : "h-8 w-8";
 
   return (
     <div

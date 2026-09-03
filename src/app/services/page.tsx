@@ -75,11 +75,19 @@ export default function ServicesPage() {
               className="scroll-mt-24 grid gap-8 py-16 lg:grid-cols-[minmax(0,1fr)_20rem]"
             >
               <Reveal>
-                <PillarIcon slug={pillar.slug} colorVar={pillar.accent} size="lg" />
-                <h2 className="mt-5 text-2xl font-semibold tracking-tight sm:text-3xl">
-                  {pillar.title}
-                </h2>
-                <p className="mt-4 text-muted">{pillar.description}</p>
+                <div className="flex items-start gap-6">
+                  <PillarIcon
+                    slug={pillar.slug}
+                    colorVar={pillar.accent}
+                    size="xl"
+                  />
+                  <div>
+                    <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+                      {pillar.title}
+                    </h2>
+                    <p className="mt-4 text-muted">{pillar.description}</p>
+                  </div>
+                </div>
 
                 <div className="mt-6 rounded-2xl border border-border bg-surface p-5">
                   <p className="text-xs font-semibold uppercase tracking-widest text-accent-cyan">
