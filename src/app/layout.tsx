@@ -53,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             "@context": "https://schema.org",
             "@type": "Organization",
             name: siteConfig.brandName,
+            legalName: siteConfig.legalName,
             url: siteConfig.url,
             email: siteConfig.email,
             telephone: siteConfig.phone,

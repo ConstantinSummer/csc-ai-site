@@ -11,6 +11,9 @@ export default function Footer() {
           <p className="mt-2 max-w-xs text-sm text-muted">
             {siteConfig.tagline}.
           </p>
+          <p className="mt-2 max-w-xs text-xs text-muted">
+            Ένα project του {siteConfig.legalName}.
+          </p>
         </div>
 
         <div>
