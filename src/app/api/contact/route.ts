@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-const TO_EMAIL = "x.dna.me@gmail.com";
+const TO_EMAIL = "constantin.sunny@gmail.com";
 const MIN_SUBMIT_MS = 3000; // reject submissions faster than this (bots)
 const MAX_MESSAGE_LEN = 5000;
 const MAX_FIELD_LEN = 200;
