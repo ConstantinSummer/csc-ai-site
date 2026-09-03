@@ -73,6 +73,7 @@ const professionalExperience = [
     οφέλη.{" "}
     <Link
       href="/case-studies/dubai-taxi-ai#fuel-efficiency"
+      scroll={false}
       className="text-accent-cyan underline underline-offset-4 transition-colors hover:text-foreground"
     >
       Δείτε το case study →
@@ -92,6 +93,7 @@ const professionalExperience = [
     .{" "}
     <Link
       href="/case-studies/dubai-taxi-ai#is4t"
+      scroll={false}
       className="text-accent-cyan underline underline-offset-4 transition-colors hover:text-foreground"
     >
       Δείτε αναλυτικά τις υπηρεσίες →

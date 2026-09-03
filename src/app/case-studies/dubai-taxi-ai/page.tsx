@@ -3,6 +3,7 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import GlowOrb from "@/components/GlowOrb";
 import Reveal from "@/components/Reveal";
+import ScrollToHash from "@/components/ScrollToHash";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -17,6 +18,12 @@ const stats = [
   { value: "8–10%", label: "μετρημένη μείωση κατανάλωσης καυσίμου" },
   { value: "9 μήνες", label: "χρόνος απόσβεσης (ROI) του fuel-efficiency project" },
   { value: "15", label: "μέλη στη διεπιστημονική ερευνητική ομάδα" },
+];
+
+const awards = [
+  "Βραβείο Ευφυούς Επιχειρηματικότητας",
+  "2η θέση σε επενδυτικό διαγωνισμό καινοτομίας (1ος διαγωνισμός)",
+  "2η θέση σε επενδυτικό διαγωνισμό καινοτομίας (2ος διαγωνισμός)",
 ];
 
 const is4tCategories = [
@@ -61,6 +68,7 @@ const is4tCategories = [
 export default function DubaiTaxiCaseStudyPage() {
   return (
     <>
+      <ScrollToHash />
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -140,6 +148,16 @@ export default function DubaiTaxiCaseStudyPage() {
             αποδοχή από τον πελάτη και έγκριση αγοράς στα Ηνωμένα Αραβικά
             Εμιράτα.
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {awards.map((award) => (
+              <span
+                key={award}
+                className="rounded-full border border-border bg-surface px-4 py-2 text-xs font-medium text-foreground"
+              >
+                {award}
+              </span>
+            ))}
+          </div>
         </Reveal>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -192,7 +210,7 @@ export default function DubaiTaxiCaseStudyPage() {
         </Reveal>
       </section>
 
-      {/* Team — academic titles only */}
+      {/* Team */}
       <section className="border-t border-border bg-surface">
         <Reveal className="container-page py-20">
           <h2 className="text-sm font-semibold uppercase tracking-widest text-accent-cyan">
@@ -203,7 +221,7 @@ export default function DubaiTaxiCaseStudyPage() {
             ατόμων, με μέλη σε Ελλάδα, Κύπρο, Σουηδία, Γαλλία, Ολλανδία και
             Νέα Υόρκη, υπό τον συντονισμό του{" "}
             <Link href="/about" className="text-foreground underline underline-offset-4">
-              ιδρυτή μας
+              Κωνσταντίνου Ζήτη
             </Link>{" "}
             ως Project Manager &amp; Project Leader. Στην ομάδα συμμετείχαν,
             μεταξύ άλλων:
@@ -213,29 +231,39 @@ export default function DubaiTaxiCaseStudyPage() {
               <p className="text-xs font-semibold uppercase tracking-widest text-accent-violet">
                 Τεχνητή Νοημοσύνη & Ευφυείς Πράκτορες
               </p>
-              <p className="mt-3 text-sm text-muted">
-                Επίκουρος Καθηγητής και Διευθυντής Εργαστηρίου Υπολογιστικής
-                Γνωσιακής Επιστήμης, με διδακτορικό (Ph.D.) στην Επιστήμη
-                Υπολογιστών / Τεχνητή Νοημοσύνη από το Harvard University.
+              <p className="mt-3 text-sm font-semibold text-foreground">
+                Λοΐζος Μιχαήλ
+              </p>
+              <p className="mt-1 text-sm text-muted">
+                Επίκουρος Καθηγητής, Ανοικτό Πανεπιστήμιο Κύπρου, Ιδρυτής και
+                Διευθυντής του Computational Cognition Lab. Διδακτορικό
+                (Ph.D.) στην Επιστήμη Υπολογιστών / Τεχνητή Νοημοσύνη από το
+                Harvard University.
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-background p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-accent-cyan">
                 Data Mining & Knowledge Discovery
               </p>
-              <p className="mt-3 text-sm text-muted">
-                Καθηγητής Πληροφορικής, με διδακτορικό (Ph.D.) στην Επιστήμη
-                Υπολογιστών από το Purdue University (ΗΠΑ).
+              <p className="mt-3 text-sm font-semibold text-foreground">
+                Βασίλειος Βερύκιος
+              </p>
+              <p className="mt-1 text-sm text-muted">
+                Καθηγητής, Ελληνικό Ανοικτό Πανεπιστήμιο. Διδακτορικό (Ph.D.)
+                στην Επιστήμη Υπολογιστών από το Purdue University (ΗΠΑ).
               </p>
             </div>
             <div className="rounded-2xl border border-border bg-background p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-accent-blue">
                 Big Data & Trajectory Mining
               </p>
-              <p className="mt-3 text-sm text-muted">
-                Διδακτορικό (Ph.D.) σε Data Warehousing & Trajectory Mining,
-                με μεταπτυχιακό στα Πληροφοριακά Συστήματα από το UMIST
-                Manchester.
+              <p className="mt-3 text-sm font-semibold text-foreground">
+                Γεράσιμος Μαρκέτος
+              </p>
+              <p className="mt-1 text-sm text-muted">
+                Διδακτορικό (Ph.D.) σε Data Warehousing &amp; Trajectory
+                Mining, με μεταπτυχιακό στα Πληροφοριακά Συστήματα από το
+                UMIST Manchester.
               </p>
             </div>
           </div>
@@ -289,8 +317,9 @@ export default function DubaiTaxiCaseStudyPage() {
                   aria-hidden="true"
                   className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-blue"
                 />
-                Ανεξάρτητη ακαδημαϊκή επικύρωση της μεθοδολογίας από
-                καθηγητή Πληροφορικής ελληνικού πανεπιστημίου
+                Ανεξάρτητη ακαδημαϊκή επικύρωση της μεθοδολογίας από τον{" "}
+                <span className="text-foreground">Βασίλειο Βερύκιο</span>,
+                Καθηγητή στο Ελληνικό Ανοικτό Πανεπιστήμιο
               </li>
             </ul>
           </Reveal>
