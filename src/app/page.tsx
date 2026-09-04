@@ -1,8 +1,10 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import HeroCanvas from "@/components/HeroCanvas";
 import GlowOrb from "@/components/GlowOrb";
 import PillarIcon from "@/components/PillarIcon";
 import Reveal from "@/components/Reveal";
+import IntakeWizard from "@/components/IntakeWizard";
 import { credentials, servicePillars } from "@/lib/site";
 
 const collaborationSteps = [
@@ -220,18 +222,30 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <Reveal className="container-page py-24 text-center">
-        <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-tight sm:text-4xl">
-          Ας μιλήσουμε για το πού μπορεί το{" "}
-          <span className="gradient-text">AI</span> να κάνει πραγματική
-          διαφορά στην επιχείρησή σας.
-        </h2>
-        <div className="mt-8 flex justify-center">
+      <Reveal className="container-page py-24">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            Ας μιλήσουμε για το πού μπορεί το{" "}
+            <span className="gradient-text">AI</span> να κάνει πραγματική
+            διαφορά στην επιχείρησή σας.
+          </h2>
+          <p className="mt-4 text-muted">
+            Αν προτιμάτε να ξεκινήσετε γραπτά, απαντήστε σε λίγες σύντομες
+            ερωτήσεις παρακάτω — προσαρμοσμένες στην υπηρεσία που σας
+            ενδιαφέρει.
+          </p>
+        </div>
+        <div className="mx-auto mt-10 max-w-2xl text-left">
+          <Suspense fallback={null}>
+            <IntakeWizard />
+          </Suspense>
+        </div>
+        <div className="mt-6 flex justify-center">
           <Link
             href="/contact"
-            className="whitespace-nowrap rounded-full bg-foreground px-8 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
+            className="text-sm text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
           >
-            Επικοινωνήστε μαζί μας
+            Ή δείτε όλους τους τρόπους επικοινωνίας →
           </Link>
         </div>
       </Reveal>

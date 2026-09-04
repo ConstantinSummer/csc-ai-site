@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+import { createPortal } from "react-dom";
+
 type Logo = {
   name: string;
   hex: string;
@@ -116,19 +121,34 @@ const LOGOS: Logo[] = [
   },
 ];
 
-function LogoItem({ logo, hidden }: { logo: Logo; hidden?: boolean }) {
+type HoverInfo = { name: string; rect: DOMRect } | null;
+
+function LogoItem({
+  logo,
+  hidden,
+  onHoverChange,
+}: {
+  logo: Logo;
+  hidden?: boolean;
+  onHoverChange: (info: HoverInfo) => void;
+}) {
+  function show(e: { currentTarget: HTMLElement }) {
+    onHoverChange({ name: logo.name, rect: e.currentTarget.getBoundingClientRect() });
+  }
+  function hide() {
+    onHoverChange(null);
+  }
+
   return (
     <div
       aria-hidden={hidden || undefined}
+      onMouseEnter={show}
+      onMouseLeave={hide}
+      onFocus={show}
+      onBlur={hide}
       className="group relative shrink-0 text-muted opacity-60 transition-opacity hover:opacity-100 focus-within:opacity-100"
       style={{ "--brand": logo.hoverHex ?? logo.hex } as React.CSSProperties}
     >
-      <span
-        role="tooltip"
-        className="pointer-events-none absolute -top-2 left-1/2 z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md border border-border bg-surface-2 px-2.5 py-1 text-xs font-medium text-foreground opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
-      >
-        {logo.name}
-      </span>
       <svg
         viewBox={logo.viewBox ?? "0 0 24 24"}
         className="h-6 w-6 fill-current transition-colors group-hover:text-[var(--brand)] group-focus-within:text-[var(--brand)]"
@@ -145,7 +165,31 @@ function LogoItem({ logo, hidden }: { logo: Logo; hidden?: boolean }) {
   );
 }
 
+// The marquee track needs `overflow: hidden` on its wrapper to hide the
+// un-scrolled portion of the duplicated logo list (see .tech-marquee in
+// globals.css) — which also clips any tooltip absolutely positioned
+// relative to a logo, since it would render inside that clipped box. A
+// portal renders the tooltip directly on <body>, positioned with
+// `position: fixed` from the hovered icon's live bounding rect, so it
+// escapes the clip entirely. The marquee already pauses on :hover (same
+// CSS file), so the rect stays accurate for as long as the tooltip shows.
+function LogoTooltip({ hover }: { hover: HoverInfo }) {
+  if (!hover || typeof document === "undefined") return null;
+  return createPortal(
+    <span
+      role="tooltip"
+      className="pointer-events-none fixed z-50 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md border border-border bg-surface-2 px-2.5 py-1 text-xs font-medium text-foreground shadow-lg"
+      style={{ left: hover.rect.left + hover.rect.width / 2, top: hover.rect.top - 8 }}
+    >
+      {hover.name}
+    </span>,
+    document.body
+  );
+}
+
 export default function TechStack() {
+  const [hover, setHover] = useState<HoverInfo>(null);
+
   return (
     <section className="border-t border-border">
       <div className="container-page py-12">
@@ -156,17 +200,23 @@ export default function TechStack() {
           <div className="tech-marquee-track">
             <div className="flex items-center gap-x-10 pr-10">
               {LOGOS.map((logo) => (
-                <LogoItem key={`a-${logo.name}`} logo={logo} />
+                <LogoItem key={`a-${logo.name}`} logo={logo} onHoverChange={setHover} />
               ))}
             </div>
             <div className="flex items-center gap-x-10 pr-10">
               {LOGOS.map((logo) => (
-                <LogoItem key={`b-${logo.name}`} logo={logo} hidden />
+                <LogoItem
+                  key={`b-${logo.name}`}
+                  logo={logo}
+                  hidden
+                  onHoverChange={setHover}
+                />
               ))}
             </div>
           </div>
         </div>
       </div>
+      <LogoTooltip hover={hover} />
     </section>
   );
 }
