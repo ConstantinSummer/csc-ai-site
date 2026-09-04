@@ -70,7 +70,13 @@ export default function Footer() {
       <div className="border-t border-border py-6">
         <p className="container-page text-xs text-muted">
           © {new Date().getFullYear()} {siteConfig.founderNameEn} — CSC AI
-          Solutions. Με επιφύλαξη παντός δικαιώματος.
+          Solutions. Με επιφύλαξη παντός δικαιώματος.{" "}
+          <Link
+            href="/privacy"
+            className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+          >
+            Πολιτική Απορρήτου
+          </Link>
         </p>
         <p className="container-page mt-1 text-xs text-muted">
           Εικονίδια υπηρεσιών από{" "}

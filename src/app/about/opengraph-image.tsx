@@ -5,7 +5,8 @@ export const contentType = ogImageContentType;
 
 export default async function OpengraphImage() {
   return buildOgImage({
-    title: "CSC AI Solutions",
-    description: "Τεχνητή Νοημοσύνη που δουλεύει για την επιχείρησή σας",
+    title: "Konstantinos Zitis — Ιδρυτής",
+    description:
+      "Υποψήφιος Διδάκτορας ΕΚΠΑ σε AI & ασύρματη συνδεσιμότητα, ιδρυτής του CSC.",
   });
 }

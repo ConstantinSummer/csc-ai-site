@@ -11,12 +11,23 @@ export const metadata: Metadata = {
   description:
     "Πώς σχεδιάστηκε το IS4T — ένα οικοσύστημα ευφυών υπηρεσιών AI και multi-agent systems για ταξί στο Dubai — και πώς ένα project data science/ML πέτυχε μετρήσιμη, ακαδημαϊκά επικυρωμένη εξοικονόμηση καυσίμου.",
   alternates: { canonical: "/case-studies/dubai-taxi-ai" },
+  openGraph: {
+    title: "Ευφυείς Υπηρεσίες AI για Στόλους Ταξί (Dubai) | CSC AI Solutions",
+    description:
+      "IS4T: multi-agent AI για ταξί στο Dubai και μετρημένη εξοικονόμηση καυσίμου 8–10%.",
+    url: "/case-studies/dubai-taxi-ai",
+  },
+  twitter: {
+    title: "Ευφυείς Υπηρεσίες AI για Στόλους Ταξί (Dubai) | CSC AI Solutions",
+    description:
+      "IS4T: multi-agent AI για ταξί στο Dubai και μετρημένη εξοικονόμηση καυσίμου 8–10%.",
+  },
 };
 
 const stats = [
   { value: "58", label: "προτεινόμενες ευφυείς υπηρεσίες στο IS4T" },
   { value: "8–10%", label: "μετρημένη μείωση κατανάλωσης καυσίμου" },
-  { value: "9 μήνες", label: "χρόνος απόσβεσης (ROI) του fuel-efficiency project" },
+  { value: "9 μήνες", label: "εκτιμώμενος χρόνος απόσβεσης (ROI) του fuel-efficiency project" },
   { value: "15", label: "μέλη στη διεπιστημονική ερευνητική ομάδα" },
 ];
 
@@ -343,7 +354,7 @@ export default function DubaiTaxiCaseStudyPage() {
                   aria-hidden="true"
                   className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-violet"
                 />
-                Απόσβεση επένδυσης (ROI) σε μόλις{" "}
+                Εκτιμώμενος χρόνος απόσβεσης επένδυσης (ROI): μόλις{" "}
                 <span className="text-foreground">9 μήνες</span>
               </li>
               <li className="flex gap-2">

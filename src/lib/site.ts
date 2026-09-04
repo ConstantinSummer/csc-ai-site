@@ -53,7 +53,7 @@ export const servicePillars: ServicePillar[] = [
     description:
       "Σχεδιασμός και ανάπτυξη εξατομικευμένου λογισμικού με Τεχνητή Νοημοσύνη: αυτόνομοι agents (agentic workflows) που εκτελούν εργασίες, συστήματα RAG και knowledge graphs για την αξιοποίηση της εσωτερικής σας γνώσης, ενσωμάτωση AI σε υπάρχοντα συστήματα (CRM, ERP, ιστοσελίδες) και αυτοματοποιήσεις διαδικασιών.",
     technicalDetail:
-      "Δουλεύουμε με σύγχρονες αρχιτεκτονικές multi-agent orchestration (planner/executor patterns, tool-calling, CTDE-style συντονισμό όπου χρειάζεται), RAG pipelines με vector databases και knowledge graphs για ακρίβεια χωρίς hallucinations, και ενσωμάτωση μέσω APIs/webhooks σε CRM, ERP και εσωτερικά εργαλεία — με έμφαση σε παρατηρησιμότητα (observability), evaluation και ασφαλή χειρισμό δεδομένων.",
+      "Δουλεύουμε με σύγχρονες αρχιτεκτονικές multi-agent orchestration (planner/executor patterns, tool-calling, CTDE-style συντονισμό όπου χρειάζεται), RAG pipelines με vector databases. Knowledge graphs και τεχνικές grounding για σημαντικό περιορισμό των hallucinations και καλύτερη επαληθευσιμότητα, και ενσωμάτωση μέσω APIs/webhooks σε CRM, ERP και εσωτερικά εργαλεία — με έμφαση σε παρατηρησιμότητα (observability), evaluation και ασφαλή χειρισμό δεδομένων.",
     outcomes: [
       "Λιγότερος χειρωνακτικός χρόνος σε επαναλαμβανόμενες εργασίες",
       "Ταχύτερη πρόσβαση σε εσωτερική γνώση που σήμερα είναι «θαμμένη» σε έγγραφα",

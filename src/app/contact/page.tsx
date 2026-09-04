@@ -10,6 +10,17 @@ export const metadata: Metadata = {
   description:
     "Επικοινωνήστε με το CSC AI Solutions για να συζητήσουμε το δικό σας project Τεχνητής Νοημοσύνης.",
   alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Επικοινωνία | CSC AI Solutions",
+    description:
+      "Επικοινωνήστε με το CSC AI Solutions για να συζητήσουμε το δικό σας project Τεχνητής Νοημοσύνης.",
+    url: "/contact",
+  },
+  twitter: {
+    title: "Επικοινωνία | CSC AI Solutions",
+    description:
+      "Επικοινωνήστε με το CSC AI Solutions για να συζητήσουμε το δικό σας project Τεχνητής Νοημοσύνης.",
+  },
 };
 
 export default function ContactPage() {

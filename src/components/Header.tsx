@@ -7,11 +7,13 @@ export default function Header() {
       <div className="container-page flex h-16 items-center justify-between">
         <Link
           href="/"
-          className="text-sm font-semibold tracking-tight sm:text-base"
+          className="min-w-0 text-sm font-semibold leading-tight tracking-tight sm:text-base"
         >
           <span className="text-foreground">Konstantinos Zitis</span>
           <span className="text-muted"> — </span>
-          <span className="gradient-text">CSC AI Solutions</span>
+          <span className="whitespace-nowrap gradient-text">
+            CSC AI Solutions
+          </span>
         </Link>
 
         <nav
@@ -31,7 +33,7 @@ export default function Header() {
 
         <Link
           href="/contact"
-          className="rounded-full border border-border bg-surface px-4 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent-blue sm:text-sm"
+          className="shrink-0 rounded-full border border-border bg-surface px-4 py-2 text-xs font-medium text-foreground transition-colors hover:border-accent-blue sm:text-sm"
         >
           Επικοινωνία
         </Link>

@@ -127,14 +127,22 @@ export default function TechStack() {
           {LOGOS.map((logo) => (
             <div
               key={logo.name}
-              title={logo.name}
-              className="text-muted opacity-60 transition-opacity hover:opacity-100"
+              className="group relative text-muted opacity-60 transition-opacity hover:opacity-100 focus-within:opacity-100"
               style={{ "--brand": logo.hoverHex ?? logo.hex } as React.CSSProperties}
             >
+              <span
+                role="tooltip"
+                className="pointer-events-none absolute -top-2 left-1/2 z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md border border-border bg-surface-2 px-2.5 py-1 text-xs font-medium text-foreground opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
+              >
+                {logo.name}
+              </span>
               <svg
                 viewBox={logo.viewBox ?? "0 0 24 24"}
-                className="h-6 w-6 fill-current transition-colors hover:text-[var(--brand)]"
-                aria-hidden="true"
+                className="h-6 w-6 fill-current transition-colors group-hover:text-[var(--brand)] group-focus-within:text-[var(--brand)]"
+                role="img"
+                aria-label={logo.name}
+                tabIndex={0}
+                focusable="true"
               >
                 <g transform={logo.transform}>
                   <path d={logo.path} />

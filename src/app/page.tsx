@@ -5,6 +5,29 @@ import PillarIcon from "@/components/PillarIcon";
 import Reveal from "@/components/Reveal";
 import { credentials, servicePillars } from "@/lib/site";
 
+const collaborationSteps = [
+  {
+    title: "Διερευνητική συνάντηση",
+    description:
+      "Γνωριζόμαστε, ακούμε το πρόβλημα ή τον στόχο σας και εξηγούμε πώς δουλεύουμε.",
+  },
+  {
+    title: "Αξιολόγηση και σχεδιασμός λύσης",
+    description:
+      "Αναλύουμε τις ανάγκες και τα υπάρχοντα συστήματά σας και σχεδιάζουμε τη λύση που ταιριάζει.",
+  },
+  {
+    title: "Prototype και υλοποίηση",
+    description:
+      "Χτίζουμε ένα πρώτο λειτουργικό prototype και προχωράμε στην πλήρη υλοποίηση.",
+  },
+  {
+    title: "Μέτρηση αποτελεσμάτων και υποστήριξη",
+    description:
+      "Παρακολουθούμε τα πραγματικά αποτελέσματα και παραμένουμε δίπλα σας για συνεχή υποστήριξη.",
+  },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -40,7 +63,7 @@ export default function HomePage() {
                 href="/contact"
                 className="whitespace-nowrap rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
               >
-                Κλείστε ένα πρώτο ραντεβού →
+                Αιτηθείτε ένα πρώτο ραντεβού →
               </Link>
               <Link
                 href="/services"
@@ -137,6 +160,32 @@ export default function HomePage() {
             />
           </Reveal>
         </div>
+      </section>
+
+      {/* How we work */}
+      <section className="container-page py-24">
+        <Reveal className="max-w-2xl">
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-accent-cyan">
+            Πώς συνεργαζόμαστε
+          </h2>
+          <p className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Τέσσερα απλά <span className="gradient-text">βήματα</span>
+          </p>
+        </Reveal>
+
+        <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {collaborationSteps.map((step, index) => (
+            <Reveal key={step.title} delayMs={index * 80}>
+              <li className="card-surface flex h-full flex-col rounded-2xl p-6">
+                <span className="gradient-text text-3xl font-semibold">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-4 text-lg font-semibold">{step.title}</h3>
+                <p className="mt-2 text-sm text-muted">{step.description}</p>
+              </li>
+            </Reveal>
+          ))}
+        </ol>
       </section>
 
       {/* Final CTA */}

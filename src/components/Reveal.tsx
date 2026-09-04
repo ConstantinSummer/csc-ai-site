@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 
 function prefersReducedMotion() {
   if (typeof window === "undefined") return false;
@@ -17,12 +17,27 @@ export default function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState(prefersReducedMotion);
+  // Content is visible by default — this is what gets server-rendered and
+  // what stays on screen if JS never loads or hydration fails. The
+  // scroll-triggered fade-in below is a progressive enhancement layered on
+  // top, never a precondition for visibility.
+  const [visible, setVisible] = useState(true);
+  const [animate, setAnimate] = useState(false);
 
-  useEffect(() => {
-    if (visible) return;
+  useLayoutEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || prefersReducedMotion()) return;
+
+    // Only animate elements that are NOT already in view on mount — that
+    // avoids hiding above-the-fold content (which would otherwise flash
+    // visible-then-hidden) while still giving below-the-fold sections
+    // their scroll-reveal effect.
+    const rect = el.getBoundingClientRect();
+    const alreadyInView = rect.top < window.innerHeight * 0.9;
+    if (alreadyInView) return;
+
+    setAnimate(true);
+    setVisible(false);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -37,18 +52,22 @@ export default function Reveal({
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [visible]);
+  }, []);
 
   return (
     <div
       ref={ref}
       className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(16px)",
-        transition: "opacity 0.7s ease, transform 0.7s ease",
-        transitionDelay: `${delayMs}ms`,
-      }}
+      style={
+        animate
+          ? {
+              opacity: visible ? 1 : 0,
+              transform: visible ? "translateY(0)" : "translateY(16px)",
+              transition: "opacity 0.7s ease, transform 0.7s ease",
+              transitionDelay: `${delayMs}ms`,
+            }
+          : undefined
+      }
     >
       {children}
     </div>

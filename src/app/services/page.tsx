@@ -11,6 +11,17 @@ export const metadata: Metadata = {
   description:
     "Ανάπτυξη AI εφαρμογών, AI strategy audit, GEO/AEO visibility και corporate training για ελληνικές επιχειρήσεις.",
   alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Υπηρεσίες Τεχνητής Νοημοσύνης | CSC AI Solutions",
+    description:
+      "Ανάπτυξη AI εφαρμογών, AI strategy audit, GEO/AEO visibility και corporate training για ελληνικές επιχειρήσεις.",
+    url: "/services",
+  },
+  twitter: {
+    title: "Υπηρεσίες Τεχνητής Νοημοσύνης | CSC AI Solutions",
+    description:
+      "Ανάπτυξη AI εφαρμογών, AI strategy audit, GEO/AEO visibility και corporate training για ελληνικές επιχειρήσεις.",
+  },
 };
 
 export default function ServicesPage() {

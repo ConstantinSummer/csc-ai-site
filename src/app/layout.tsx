@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -45,7 +46,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  // Reading the CSP nonce here (set in src/proxy.ts) is what makes Next.js
+  // apply that same nonce to the inline hydration/streaming <script> tags
+  // it injects on every page — without this read, Next never learns the
+  // nonce exists and those scripts get blocked by our strict CSP.
+  await headers();
+
   return (
     <html lang="el" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-background text-foreground">

@@ -41,6 +41,12 @@ export default function ContactForm() {
       formLoadedAt: formLoadedAtRef.current,
     };
 
+    if (!payload.phone.trim() && !payload.email.trim()) {
+      setStatus("error");
+      setErrorMsg("Συμπληρώστε τηλέφωνο ή email επικοινωνίας.");
+      return;
+    }
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -113,22 +119,21 @@ export default function ContactForm() {
             name="name"
             required
             maxLength={200}
-            className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent-blue"
+            className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground transition-colors focus:border-accent-blue"
             placeholder="Το όνομά σας"
           />
         </div>
 
         <div>
           <label htmlFor="phone" className="text-sm font-medium text-foreground">
-            Κινητό τηλέφωνο <span className="text-accent-cyan">*</span>
+            Κινητό τηλέφωνο
           </label>
           <input
             type="tel"
             id="phone"
             name="phone"
-            required
             maxLength={40}
-            className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent-blue"
+            className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground transition-colors focus:border-accent-blue"
             placeholder="69XX XXX XXX"
           />
         </div>
@@ -136,16 +141,19 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="email" className="text-sm font-medium text-foreground">
-          Email <span className="text-muted">(προαιρετικό)</span>
+          Email
         </label>
         <input
           type="email"
           id="email"
           name="email"
           maxLength={254}
-          className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent-blue"
+          className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground transition-colors focus:border-accent-blue"
           placeholder="you@example.com"
         />
+        <p className="mt-1.5 text-xs text-muted">
+          Συμπληρώστε τουλάχιστον ένα από τα δύο: τηλέφωνο ή email.
+        </p>
       </div>
 
       <div>
@@ -158,7 +166,7 @@ export default function ContactForm() {
           required
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
-          className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent-blue"
+          className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground transition-colors focus:border-accent-blue"
         >
           <option value="" disabled>
             Επιλέξτε θέμα…
@@ -188,7 +196,7 @@ export default function ContactForm() {
             maxLength={200}
             value={otherTopic}
             onChange={(e) => setOtherTopic(e.target.value)}
-            className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent-blue"
+            className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground transition-colors focus:border-accent-blue"
             placeholder="π.χ. Συνεργασία, ερώτηση κ.λπ."
           />
         </div>
@@ -204,7 +212,7 @@ export default function ContactForm() {
           required
           rows={6}
           maxLength={5000}
-          className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none transition-colors focus:border-accent-blue"
+          className="mt-2 w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground transition-colors focus:border-accent-blue"
           placeholder="Περιγράψτε όσο πιο αναλυτικά μπορείτε τι χρειάζεστε — τι θα θέλατε να πετύχετε, ποιο πρόβλημα προσπαθείτε να λύσετε, ή οτιδήποτε θεωρείτε χρήσιμο."
         />
       </div>
@@ -215,13 +223,26 @@ export default function ContactForm() {
         </p>
       )}
 
-      <button
-        type="submit"
-        disabled={status === "submitting"}
-        className="w-full whitespace-nowrap rounded-full bg-foreground px-8 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90 disabled:opacity-50 sm:w-auto"
-      >
-        {status === "submitting" ? "Αποστολή…" : "Αποστολή μηνύματος"}
-      </button>
+      <div>
+        <button
+          type="submit"
+          disabled={status === "submitting"}
+          className="w-full whitespace-nowrap rounded-full bg-foreground px-8 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90 disabled:opacity-50 sm:w-auto"
+        >
+          {status === "submitting" ? "Αποστολή…" : "Αποστολή μηνύματος"}
+        </button>
+        <p className="mt-3 text-xs text-muted">
+          Χρησιμοποιούμε τα στοιχεία αυτής της φόρμας μόνο για να σας
+          απαντήσουμε — δείτε την{" "}
+          <a
+            href="/privacy"
+            className="underline underline-offset-4 hover:text-foreground"
+          >
+            Πολιτική Απορρήτου
+          </a>
+          .
+        </p>
+      </div>
     </form>
   );
 }

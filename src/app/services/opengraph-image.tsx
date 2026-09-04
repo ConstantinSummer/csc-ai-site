@@ -5,7 +5,8 @@ export const contentType = ogImageContentType;
 
 export default async function OpengraphImage() {
   return buildOgImage({
-    title: "CSC AI Solutions",
-    description: "Τεχνητή Νοημοσύνη που δουλεύει για την επιχείρησή σας",
+    title: "Υπηρεσίες Τεχνητής Νοημοσύνης",
+    description:
+      "Ανάπτυξη AI εφαρμογών, AI strategy audit, GEO/AEO visibility και corporate training.",
   });
 }

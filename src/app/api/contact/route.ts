@@ -2,7 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
-const TO_EMAIL = "constantin.sunny@gmail.com";
+// Deliberately NOT hardcoded: this is personal data and this repo is
+// public. Set CONTACT_TO_EMAIL in the Vercel project's Environment
+// Variables (Production) instead — see the missing-config check below.
+const TO_EMAIL = process.env.CONTACT_TO_EMAIL;
 const MIN_SUBMIT_MS = 3000; // reject submissions faster than this (bots)
 const MAX_MESSAGE_LEN = 5000;
 const MAX_FIELD_LEN = 200;
@@ -83,9 +86,17 @@ export async function POST(req: NextRequest) {
     const otherTopic = clean(body.otherTopic, 200);
     const message = clean(body.message, MAX_MESSAGE_LEN);
 
-    if (!name || !phone || !topic || !message) {
+    if (!name || !topic || !message) {
       return NextResponse.json(
         { ok: false, error: "Συμπληρώστε όλα τα υποχρεωτικά πεδία." },
+        { status: 400 }
+      );
+    }
+    // Data minimisation: we don't force both phone AND email — just at
+    // least one working way to reply to the visitor.
+    if (!phone && !email) {
+      return NextResponse.json(
+        { ok: false, error: "Συμπληρώστε τηλέφωνο ή email επικοινωνίας." },
         { status: 400 }
       );
     }
@@ -96,12 +107,14 @@ export async function POST(req: NextRequest) {
       );
     }
     // Very light phone sanity check (digits, spaces, +, -, at least 8 digits)
-    const digitCount = phone.replace(/\D/g, "").length;
-    if (digitCount < 8) {
-      return NextResponse.json(
-        { ok: false, error: "Το τηλέφωνο δεν φαίνεται έγκυρο." },
-        { status: 400 }
-      );
+    if (phone) {
+      const digitCount = phone.replace(/\D/g, "").length;
+      if (digitCount < 8) {
+        return NextResponse.json(
+          { ok: false, error: "Το τηλέφωνο δεν φαίνεται έγκυρο." },
+          { status: 400 }
+        );
+      }
     }
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json(
@@ -113,8 +126,10 @@ export async function POST(req: NextRequest) {
     const topicLabel = topic === "other" ? otherTopic : topic;
 
     const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
-      console.error("RESEND_API_KEY is not configured");
+    if (!apiKey || !TO_EMAIL) {
+      console.error(
+        "Email is not fully configured (missing RESEND_API_KEY or CONTACT_TO_EMAIL)"
+      );
       return NextResponse.json(
         { ok: false, error: "Η αποστολή δεν είναι διαθέσιμη αυτή τη στιγμή." },
         { status: 500 }
@@ -126,7 +141,7 @@ export async function POST(req: NextRequest) {
       <div style="font-family: sans-serif; font-size: 14px; line-height: 1.6;">
         <h2>Νέα υποβολή φόρμας ενδιαφέροντος</h2>
         <p><strong>Όνομα:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Κινητό:</strong> ${escapeHtml(phone)}</p>
+        <p><strong>Κινητό:</strong> ${phone ? escapeHtml(phone) : "(δεν δόθηκε)"}</p>
         <p><strong>Email:</strong> ${email ? escapeHtml(email) : "(δεν δόθηκε)"}</p>
         <p><strong>Θέμα:</strong> ${escapeHtml(topicLabel)}</p>
         <p><strong>Μήνυμα:</strong></p>
