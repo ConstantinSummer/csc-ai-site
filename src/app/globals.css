@@ -90,6 +90,49 @@ body {
   border-radius: 4px;
 }
 
+/* Infinite horizontal scroll for the tech-stack logo strip (TechStack.tsx).
+   The track renders two back-to-back copies of the logo list and scrolls
+   exactly half its width, so the loop is seamless regardless of viewport
+   size — this also fixes the old wrapped-grid layout always stranding the
+   last logo alone on its own row. Respects prefers-reduced-motion below. */
+.tech-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+.tech-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: tech-marquee-scroll 36s linear infinite;
+}
+
+.tech-marquee:hover .tech-marquee-track,
+.tech-marquee:focus-within .tech-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes tech-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;

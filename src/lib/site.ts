@@ -41,6 +41,7 @@ export type ServicePillar = {
   title: string;
   shortDescription: string;
   description: string;
+  simpleDescription: string;
   technicalDetail: string;
   outcomes: string[];
   audience: string;
@@ -56,6 +57,8 @@ export const servicePillars: ServicePillar[] = [
     shortDescription: "Custom agents, automation, integrations",
     description:
       "Σχεδιασμός και ανάπτυξη εξατομικευμένου λογισμικού με Τεχνητή Νοημοσύνη: αυτόνομοι agents (agentic workflows) που εκτελούν εργασίες, συστήματα RAG και knowledge graphs για την αξιοποίηση της εσωτερικής σας γνώσης, ενσωμάτωση AI σε υπάρχοντα συστήματα (CRM, ERP, ιστοσελίδες) και αυτοματοποιήσεις διαδικασιών.",
+    simpleDescription:
+      "Φτιάχνουμε προγράμματα που κάνουν μόνα τους δουλειές που σήμερα κάνει κάποιος άνθρωπος με το χέρι — απαντούν σε ερωτήσεις, ψάχνουν πληροφορίες μέσα στα δικά σας έγγραφα, συμπληρώνουν φόρμες, ενημερώνουν τα συστήματά σας — χωρίς να χρειάζεται να τα επιβλέπετε συνέχεια.",
     technicalDetail:
       "Δουλεύουμε με σύγχρονες αρχιτεκτονικές multi-agent orchestration (planner/executor patterns, tool-calling, CTDE-style συντονισμό όπου χρειάζεται), RAG pipelines με vector databases. Knowledge graphs και τεχνικές grounding για σημαντικό περιορισμό των hallucinations και καλύτερη επαληθευσιμότητα, και ενσωμάτωση μέσω APIs/webhooks σε CRM, ERP και εσωτερικά εργαλεία — με έμφαση σε παρατηρησιμότητα (observability), evaluation και ασφαλή χειρισμό δεδομένων.",
     outcomes: [
@@ -74,6 +77,8 @@ export const servicePillars: ServicePillar[] = [
     shortDescription: "Από πού να ξεκινήσετε, με σαφές πλάνο",
     description:
       "Αξιολόγηση της τρέχουσας κατάστασης της επιχείρησής σας, εντοπισμός quick-wins και σαφές roadmap υλοποίησης με προτεραιότητες, ρίσκα και εκτιμώμενο κόστος/όφελος.",
+    simpleDescription:
+      "Ερχόμαστε στην επιχείρησή σας, βλέπουμε πώς δουλεύετε σήμερα και σας λέμε ξεκάθαρα πού μπορεί το AI να σας βοηθήσει πραγματικά και πού όχι — πριν ξοδέψετε έστω κι ένα ευρώ σε κάτι που δεν σας χρειάζεται.",
     technicalDetail:
       "Χαρτογραφούμε τις ροές δεδομένων και διαδικασιών σας, αξιολογούμε ποιότητα/διαθεσιμότητα δεδομένων (data readiness), εντοπίζουμε τα σημεία με το καλύτερο λόγο κόστους/οφέλους για αυτοματοποίηση ή AI-augmentation, και παραδίδουμε ένα τεκμηριωμένο roadmap με φάσεις υλοποίησης, ρίσκα (τεχνικά, οργανωτικά, κανονιστικά) και ενδεικτικό χρονοδιάγραμμα.",
     outcomes: [
@@ -92,6 +97,8 @@ export const servicePillars: ServicePillar[] = [
     shortDescription: "Να σας «βρίσκει» το ChatGPT, το Gemini κ.ά.",
     description:
       "Τεχνική βελτιστοποίηση ώστε η επιχείρησή σας να εμφανίζεται όταν πελάτες ρωτούν εργαλεία Τεχνητής Νοημοσύνης: structured data, semantic content, βελτιστοποιημένη δομή περιεχομένου για ανάκτηση από μεγάλα γλωσσικά μοντέλα.",
+    simpleDescription:
+      "Φροντίζουμε ώστε όταν κάποιος ρωτήσει ένα εργαλείο AI (π.χ. το ChatGPT) κάτι σχετικό με τον κλάδο σας, να προτείνει εσάς — ακριβώς όπως παλιότερα φροντίζαμε να σας βρίσκει κόσμος μέσα από τη Google.",
     technicalDetail:
       "Εφαρμόζουμε Generative Engine Optimization (GEO) και Answer Engine Optimization (AEO): schema.org / JSON-LD structured data, semantic HTML, αρχεία llms.txt, βελτιστοποίηση περιεχομένου για retrieval από RAG-based συστήματα αναζήτησης, και παρακολούθηση της παρουσίας σας σε απαντήσεις AI εργαλείων — το ίδιο μας το site είναι ζωντανό παράδειγμα αυτής της προσέγγισης.",
     outcomes: [
@@ -110,6 +117,8 @@ export const servicePillars: ServicePillar[] = [
     shortDescription: "Πρακτικές δεξιότητες AI για το προσωπικό σας",
     description:
       "Πρακτική εκπαίδευση προσωπικού σε εργαλεία και δεξιότητες Τεχνητής Νοημοσύνης, σε πακέτα ωρών προσαρμοσμένα στην ομάδα σας — βασισμένη σε 22+ χρόνια διδακτικής εμπειρίας και 20.000+ ώρες διδασκαλίας.",
+    simpleDescription:
+      "Μαθαίνουμε στην ομάδα σας, βήμα-βήμα και με απλά λόγια, πώς να χρησιμοποιεί εργαλεία AI στην καθημερινή της δουλειά — χωρίς τεχνική ορολογία, με πραγματικά παραδείγματα από τον δικό σας κλάδο.",
     technicalDetail:
       "Προγράμματα προσαρμοσμένα στο επίπεδο της ομάδας: από Prompt Engineering και ασφαλή/υπεύθυνη χρήση εργαλείων AI, μέχρι πρακτικά εργαστήρια σε Generative AI για developers, AI agents και automation — με πραγματικά παραδείγματα από τον κλάδο της επιχείρησής σας, όχι γενικές παρουσιάσεις.",
     outcomes: [

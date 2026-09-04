@@ -57,11 +57,46 @@ const studies = [
 
 const timeline = [
   {
+    period: "Πριν το 2014",
+    title: "Προγραμματιστής Εφαρμογών Πληροφορικής",
+    org: "Fraunhofer-Institut für Graphische Datenverarbeitung (IGD), Darmstadt, Γερμανία",
+    description:
+      "Συμμετοχή σε ερευνητικά έργα πληροφοριακών συστημάτων, με συνέχιση της συνεργασίας για ακόμη 5 χρόνια με σύμβαση εργασίας στο Darmstadt.",
+  },
+  {
+    period: "Πριν το 2014",
+    title: "Project Manager",
+    org: "EXODUS Α.Ε., Αθήνα",
+    description:
+      "Διαχείριση έργων πληροφορικής και παρακολούθηση της υλοποίησής τους για βασικό πελάτη την Τράπεζα Πειραιώς.",
+  },
+  {
+    period: "Πριν το 2014",
+    title: "Σύμβουλος Πληροφορικής",
+    org: "DLT Media S.A. — Αθήνα, Στοκχόλμη, Ρότερνταμ",
+    description:
+      "Στρατηγική ανάπτυξη και ψηφιακός μετασχηματισμός θυγατρικών εταιρειών σε Ολλανδία, Σουηδία, Αγγλία, Νορβηγία, Δανία και Γερμανία.",
+  },
+  {
     period: "2012–2015",
     title: "IT Project Manager / International Business Development Manager",
     org: "SCIN / Waste Energy — Dubai Taxi Corporation & Roads and Transport Authority (RTA), Dubai",
     description:
       "Ηγήθηκα ενός σύνθετου έργου εξοικονόμησης καυσίμου και συνέλαβα το IS4T, ένα οικοσύστημα ευφυών υπηρεσιών για στόλους ταξί.",
+  },
+  {
+    period: "2014–σήμερα",
+    title: "Διευθύνων Τμήματος Ψηφιακής Έρευνας & Ανάπτυξης",
+    org: "JOIN — Ελλάδα, Κύπρος, Μάλτα, Λίβανος",
+    description:
+      "Διαχείριση ομάδας 40 συνεργατών και ανάπτυξη IoT προϊόντων· επίβλεψη ψηφιακών υπηρεσιών και υλοποίηση νέων επιχειρηματικών ιδεών σε 4 χώρες.",
+  },
+  {
+    period: "2014–σήμερα",
+    title: "Επιστημονικός Συνεργάτης",
+    org: "Πανεπιστήμιο Κύπρου (ΑΠΚΥ)",
+    description:
+      "Εξειδικευμένες συμβουλευτικές υπηρεσίες σε ερευνητικά έργα πληροφορικής και τεχνολογικές πρωτοβουλίες, με έμφαση στην τεχνική καθοδήγηση και την ερευνητική μεθοδολογία.",
   },
   {
     period: "Σήμερα",
@@ -169,6 +204,14 @@ export default function AboutPage() {
             <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
               {siteConfig.founderName}
             </h1>
+            <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-muted">
+              Εκπαιδευτής Πληροφορικής · BSc, MSc (UEL &amp; ΑΠΚΥ), PhD candidate
+            </p>
+            <p className="mt-1 text-sm italic text-muted">
+              Academic Program Leader &amp; Professor, Faculty of Computing —
+              Software Engineer, Software Architect, Software Engineering
+              Manager
+            </p>
             <p className="mt-6 text-lg text-muted sm:text-xl">
               Η γέφυρα ανάμεσα σε ακαδημαϊκή{" "}
               <span className="gradient-text">έρευνα</span> αιχμής και

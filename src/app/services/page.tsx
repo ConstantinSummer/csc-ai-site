@@ -99,6 +99,15 @@ export default function ServicesPage() {
 
                 <div className="mt-6 rounded-2xl border border-border bg-surface p-5">
                   <p className="text-xs font-semibold uppercase tracking-widest text-accent-cyan">
+                    Σε απλά λόγια
+                  </p>
+                  <p className="mt-2 text-sm text-muted">
+                    {pillar.simpleDescription}
+                  </p>
+                </div>
+
+                <div className="mt-6 rounded-2xl border border-border bg-surface p-5">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-accent-cyan">
                     Τεχνική προσέγγιση
                   </p>
                   <p className="mt-2 text-sm text-muted">

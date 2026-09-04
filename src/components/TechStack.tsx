@@ -116,6 +116,35 @@ const LOGOS: Logo[] = [
   },
 ];
 
+function LogoItem({ logo, hidden }: { logo: Logo; hidden?: boolean }) {
+  return (
+    <div
+      aria-hidden={hidden || undefined}
+      className="group relative shrink-0 text-muted opacity-60 transition-opacity hover:opacity-100 focus-within:opacity-100"
+      style={{ "--brand": logo.hoverHex ?? logo.hex } as React.CSSProperties}
+    >
+      <span
+        role="tooltip"
+        className="pointer-events-none absolute -top-2 left-1/2 z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md border border-border bg-surface-2 px-2.5 py-1 text-xs font-medium text-foreground opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
+      >
+        {logo.name}
+      </span>
+      <svg
+        viewBox={logo.viewBox ?? "0 0 24 24"}
+        className="h-6 w-6 fill-current transition-colors group-hover:text-[var(--brand)] group-focus-within:text-[var(--brand)]"
+        role="img"
+        aria-label={logo.name}
+        tabIndex={hidden ? -1 : 0}
+        focusable={!hidden}
+      >
+        <g transform={logo.transform}>
+          <path d={logo.path} />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
 export default function TechStack() {
   return (
     <section className="border-t border-border">
@@ -123,33 +152,19 @@ export default function TechStack() {
         <p className="text-center text-xs font-semibold uppercase tracking-widest text-muted">
           Τεχνολογίες &amp; μοντέλα AI που δουλεύουμε
         </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-          {LOGOS.map((logo) => (
-            <div
-              key={logo.name}
-              className="group relative text-muted opacity-60 transition-opacity hover:opacity-100 focus-within:opacity-100"
-              style={{ "--brand": logo.hoverHex ?? logo.hex } as React.CSSProperties}
-            >
-              <span
-                role="tooltip"
-                className="pointer-events-none absolute -top-2 left-1/2 z-10 -translate-x-1/2 -translate-y-full whitespace-nowrap rounded-md border border-border bg-surface-2 px-2.5 py-1 text-xs font-medium text-foreground opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100 group-focus-within:opacity-100"
-              >
-                {logo.name}
-              </span>
-              <svg
-                viewBox={logo.viewBox ?? "0 0 24 24"}
-                className="h-6 w-6 fill-current transition-colors group-hover:text-[var(--brand)] group-focus-within:text-[var(--brand)]"
-                role="img"
-                aria-label={logo.name}
-                tabIndex={0}
-                focusable="true"
-              >
-                <g transform={logo.transform}>
-                  <path d={logo.path} />
-                </g>
-              </svg>
+        <div className="tech-marquee mt-6" role="list" aria-label="Τεχνολογίες & μοντέλα AI">
+          <div className="tech-marquee-track">
+            <div className="flex items-center gap-x-10 pr-10">
+              {LOGOS.map((logo) => (
+                <LogoItem key={`a-${logo.name}`} logo={logo} />
+              ))}
             </div>
-          ))}
+            <div className="flex items-center gap-x-10 pr-10">
+              {LOGOS.map((logo) => (
+                <LogoItem key={`b-${logo.name}`} logo={logo} hidden />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
