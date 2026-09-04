@@ -17,10 +17,14 @@ export const siteConfig = {
   },
   social: {
     facebook: "https://www.facebook.com/csc.gr/",
+    linkedin: "https://www.linkedin.com/in/constantinsummer",
+    github: "https://github.com/ConstantinSummer",
+    orcid: "https://orcid.org/0000-0005-0639-3401",
   },
   navLinks: [
     { href: "/", label: "Αρχική" },
     { href: "/services", label: "Υπηρεσίες" },
+    { href: "/case-studies/dubai-taxi-ai", label: "Case Studies" },
     { href: "/about", label: "Σχετικά" },
   ],
 } as const;

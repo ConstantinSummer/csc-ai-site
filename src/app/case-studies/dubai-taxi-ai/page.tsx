@@ -345,25 +345,31 @@ export default function DubaiTaxiCaseStudyPage() {
                   aria-hidden="true"
                   className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-violet"
                 />
-                Μετρημένη μείωση κατανάλωσης καυσίμου{" "}
-                <span className="text-foreground">8–10%</span> (εγγύηση
-                ελάχιστου 8%, με δυνατότητα έως 12%)
+                <span>
+                  Μετρημένη μείωση κατανάλωσης καυσίμου{" "}
+                  <span className="text-foreground">8–10%</span> (εγγύηση
+                  ελάχιστου 8%, με δυνατότητα έως 12%)
+                </span>
               </li>
               <li className="flex gap-2">
                 <span
                   aria-hidden="true"
                   className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-violet"
                 />
-                Εκτιμώμενος χρόνος απόσβεσης επένδυσης (ROI): μόλις{" "}
-                <span className="text-foreground">9 μήνες</span>
+                <span>
+                  Εκτιμώμενος χρόνος απόσβεσης επένδυσης (ROI): μόλις{" "}
+                  <span className="text-foreground">9 μήνες</span>
+                </span>
               </li>
               <li className="flex gap-2">
                 <span
                   aria-hidden="true"
                   className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-violet"
                 />
-                Προβολές εξοικονόμησης καυσίμου και μείωσης εκπομπών CO₂ σε
-                κλίμακα στόλου έως 25.000 οχημάτων
+                <span>
+                  Προβολές εξοικονόμησης καυσίμου και μείωσης εκπομπών CO₂ σε
+                  κλίμακα στόλου έως 25.000 οχημάτων
+                </span>
               </li>
             </ul>
           </Reveal>

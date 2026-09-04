@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import GlowOrb from "@/components/GlowOrb";
@@ -108,6 +109,26 @@ const featuredProjects = [
     href: "/case-studies/dubai-taxi-ai#is4t",
     linkLabel: "Δείτε αναλυτικά τις υπηρεσίες →",
   },
+  {
+    title: "MARL για Εικονικούς Σταθμούς Παραγωγής (VPP)",
+    description: (
+      <>
+        Διπλωματική εργασία, MSc Artificial Intelligence: αποκεντρωμένος
+        συντονισμός φωτοβολταϊκών, μπαταρίας και φορτίου μέσω{" "}
+        <span className={hl}>πολυπρακτορικής ενισχυτικής μάθησης</span>, με
+        αυστηρή στατιστική αξιολόγηση του συμβιβασμού κόστους-επικοινωνίας —
+        θετικά και μη ευρήματα, όπως ακριβώς προέκυψαν.
+      </>
+    ),
+    href: "/case-studies/vpp-marl",
+    linkLabel: "Δείτε τη μελέτη →",
+  },
+];
+
+const socialLinks = [
+  { label: "LinkedIn", href: siteConfig.social.linkedin },
+  { label: "GitHub", href: siteConfig.social.github },
+  { label: "ORCID", href: siteConfig.social.orcid },
 ];
 
 const focusAreas = [
@@ -159,17 +180,29 @@ export default function AboutPage() {
               επαγγελματικής και ακαδημαϊκής δραστηριότητας στην Ελλάδα και
               το εξωτερικό.
             </p>
+            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              {socialLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div
-            aria-hidden="true"
-            className="flex h-32 w-32 shrink-0 items-center justify-center rounded-full text-3xl font-semibold text-background sm:h-40 sm:w-40"
-            style={{
-              backgroundImage:
-                "linear-gradient(135deg, var(--accent-blue), var(--accent-violet), var(--accent-cyan))",
-            }}
-          >
-            ΚΖ
-          </div>
+          <Image
+            src="/instructor-photo.webp"
+            alt={siteConfig.founderName}
+            width={640}
+            height={640}
+            priority
+            className="h-32 w-32 shrink-0 rounded-full object-cover sm:h-40 sm:w-40"
+          />
         </Reveal>
       </section>
 

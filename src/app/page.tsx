@@ -120,6 +120,37 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Dubai case study highlight */}
+      <section className="border-y border-border bg-surface">
+        <div className="container-page grid gap-12 py-24 lg:grid-cols-2 lg:items-center">
+          <Reveal>
+            <h2 className="text-sm font-semibold uppercase tracking-widest text-accent-cyan">
+              Case Study
+            </h2>
+            <p className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Αποδεδειγμένο έργο{" "}
+              <span className="gradient-text">Τεχνητής Νοημοσύνης</span> στο
+              Dubai
+            </p>
+            <Link
+              href="/case-studies/dubai-taxi-ai"
+              className="mt-8 inline-flex whitespace-nowrap rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
+            >
+              Δείτε τη μελέτη περίπτωσης →
+            </Link>
+          </Reveal>
+          <Reveal delayMs={120} className="card-surface grid grid-cols-2 gap-6 rounded-2xl p-8">
+            <Stat value="58" label="σχεδιασμένες ευφυείς υπηρεσίες" />
+            <Stat value="8–10%" label="μετρημένη μείωση κατανάλωσης καυσίμου" />
+            <Stat value="9 μήνες" label="εκτιμώμενος χρόνος απόσβεσης" />
+            <Stat
+              value="15"
+              label="άτομα σε διεθνή διεπιστημονική ομάδα"
+            />
+          </Reveal>
+        </div>
+      </section>
+
       {/* Why now */}
       <section className="relative overflow-hidden border-y border-border bg-surface">
         <GlowOrb

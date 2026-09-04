@@ -15,6 +15,11 @@ const routes: { path: string; lastModified: string; priority: number }[] = [
     lastModified: "2026-09-04",
     priority: 0.7,
   },
+  {
+    path: "/case-studies/vpp-marl",
+    lastModified: "2026-09-04",
+    priority: 0.6,
+  },
   { path: "/privacy", lastModified: "2026-09-04", priority: 0.3 },
 ];
 
