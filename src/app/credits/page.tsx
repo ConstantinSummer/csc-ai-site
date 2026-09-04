@@ -13,6 +13,11 @@ export const metadata: Metadata = {
       "Αναφορές πνευματικών δικαιωμάτων για στοιχεία τρίτων που χρησιμοποιούνται στο csc.com.gr.",
     url: "/credits",
   },
+  twitter: {
+    title: "Credits | CSC AI Solutions",
+    description:
+      "Αναφορές πνευματικών δικαιωμάτων για στοιχεία τρίτων που χρησιμοποιούνται στο csc.com.gr.",
+  },
 };
 
 export default function CreditsPage() {

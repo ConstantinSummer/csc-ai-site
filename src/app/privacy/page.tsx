@@ -14,6 +14,11 @@ export const metadata: Metadata = {
       "Ποια δεδομένα συλλέγει το csc.com.gr μέσω της φόρμας επικοινωνίας, για ποιο σκοπό, πόσο καιρό τα κρατάμε και ποια δικαιώματα έχετε.",
     url: "/privacy",
   },
+  twitter: {
+    title: "Πολιτική Απορρήτου | CSC AI Solutions",
+    description:
+      "Ποια δεδομένα συλλέγει το csc.com.gr μέσω της φόρμας επικοινωνίας, για ποιο σκοπό, πόσο καιρό τα κρατάμε και ποια δικαιώματα έχετε.",
+  },
 };
 
 export default function PrivacyPage() {

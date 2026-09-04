@@ -191,6 +191,15 @@ export default function AboutPage() {
           },
           url: `${siteConfig.url}/about`,
           email: siteConfig.email,
+          sameAs: [
+            siteConfig.social.linkedin,
+            siteConfig.social.github,
+            siteConfig.social.orcid,
+          ],
+          alumniOf: studies.map((s) => ({
+            "@type": "EducationalOrganization",
+            name: s.institution,
+          })),
         }}
       />
 
