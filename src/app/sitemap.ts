@@ -21,6 +21,7 @@ const routes: { path: string; lastModified: string; priority: number }[] = [
     priority: 0.6,
   },
   { path: "/privacy", lastModified: "2026-09-04", priority: 0.3 },
+  { path: "/credits", lastModified: "2026-09-05", priority: 0.1 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -76,19 +76,14 @@ export default function Footer() {
             className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
           >
             Πολιτική Απορρήτου
-          </Link>
-        </p>
-        <p className="container-page mt-1 text-xs text-muted">
-          Εικονίδια υπηρεσιών από{" "}
-          <a
-            href="https://game-icons.net"
-            target="_blank"
-            rel="noopener noreferrer"
+          </Link>{" "}
+          ·{" "}
+          <Link
+            href="/credits"
             className="underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
           >
-            game-icons.net
-          </a>{" "}
-          (Lorc, Sbed) — CC BY 3.0.
+            Credits
+          </Link>
         </p>
       </div>
     </footer>

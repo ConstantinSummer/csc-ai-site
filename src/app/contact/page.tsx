@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import GlowOrb from "@/components/GlowOrb";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
+import IntakeWizard from "@/components/IntakeWizard";
 import { ObfuscatedEmail, ObfuscatedPhone } from "@/components/ObfuscatedContact";
 
 export const metadata: Metadata = {
@@ -56,9 +57,33 @@ export default function ContactPage() {
 
       <section className="container-page py-20">
         <Reveal className="mx-auto max-w-2xl">
-          <Suspense fallback={null}>
-            <ContactForm />
-          </Suspense>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-accent-cyan">
+            Βρείτε γρήγορα τη λύση που σας ταιριάζει
+          </h2>
+          <p className="mt-2 text-sm text-muted">
+            Απαντήστε σε λίγες σύντομες ερωτήσεις, προσαρμοσμένες στην
+            υπηρεσία που σας ενδιαφέρει, και δείτε στο τέλος μια περίληψη
+            όσων μας δώσατε — μπορείτε να τη στείλετε και στο δικό σας
+            email.
+          </p>
+          <div className="mt-6">
+            <Suspense fallback={null}>
+              <IntakeWizard />
+            </Suspense>
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="container-page pb-20">
+        <Reveal className="mx-auto max-w-2xl">
+          <p className="text-center text-sm text-muted">
+            — ή, αν προτιμάτε να γράψετε ελεύθερα το μήνυμά σας —
+          </p>
+          <div className="mt-6">
+            <Suspense fallback={null}>
+              <ContactForm />
+            </Suspense>
+          </div>
         </Reveal>
       </section>
 
