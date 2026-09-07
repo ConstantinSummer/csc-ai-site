@@ -25,6 +25,7 @@ export const siteConfig = {
     { href: "/", label: "Αρχική" },
     { href: "/services", label: "Υπηρεσίες" },
     { href: "/case-studies/dubai-taxi-ai", label: "Case Studies" },
+    { href: "/orologies", label: "Λεξικό" },
     { href: "/about", label: "Σχετικά" },
   ],
 } as const;

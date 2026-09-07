@@ -66,6 +66,8 @@
 - [Υπηρεσίες](https://csc.com.gr/services): Αναλυτική περιγραφή των 4 βασικών υπηρεσιών, τεχνικές λεπτομέρειες, αναμενόμενα αποτελέσματα ανά υπηρεσία, και συχνές ερωτήσεις.
 - [Σχετικά](https://csc.com.gr/about): Πλήρες βιογραφικό, ακαδημαϊκό υπόβαθρο και επαγγελματική εμπειρία του ιδρυτή.
 - [Case study: Dubai Taxi AI](https://csc.com.gr/case-studies/dubai-taxi-ai): Αναλυτική περιγραφή του πραγματικού έργου IS4T και του συστήματος εξοικονόμησης καυσίμου στο Dubai.
+- [Λεξικό AI & Τεχνολογίας](https://csc.com.gr/orologies): Πρακτικές εξηγήσεις βασικών όρων Τεχνητής Νοημοσύνης (AI, Machine Learning, Deep Learning, Generative AI, LLMs, RAG, AI Agents, Agentic Workflows, NLP, Computer Vision, MLOps, APIs, Business Process Automation) για επιχειρηματίες και decision makers.
+- [Machine Learning: Τι είναι και πώς αξιοποιείται στις επιχειρήσεις](https://csc.com.gr/machine-learning): Αναλυτικός οδηγός — ορισμός, σχέση με AI/Deep Learning/Generative AI, οι τρεις βασικές προσεγγίσεις μάθησης, πρακτικές εφαρμογές, πότε αξίζει και πότε όχι, data requirements, ρίσκα (ακρίβεια, μεροληψία, επεξηγησιμότητα, ιδιωτικότητα).
 - [Επικοινωνία](https://csc.com.gr/contact): Φόρμα επικοινωνίας, τηλέφωνο και email.
 
 ## Επικοινωνία
