@@ -19,7 +19,24 @@ import { NextResponse, type NextRequest } from "next/server";
 //   executable script, so they are unaffected by script-src.
 const isDev = process.env.NODE_ENV !== "production";
 
+// Hacked-site spam remnant: /network.php?cid=...&number=... was injected by
+// a prior compromise and got indexed by Google with spammy titles. The path
+// isn't a real route (no matching page), but returning a proper 410 Gone
+// here — instead of falling through to the default 404 — tells Google
+// unambiguously the URL is permanently removed, speeding up deindexing.
+// Matches any query string on this exact path.
+function isKnownSpamPath(pathname: string) {
+  return pathname === "/network.php";
+}
+
 export function proxy(request: NextRequest) {
+  if (isKnownSpamPath(request.nextUrl.pathname)) {
+    return new NextResponse("Gone", {
+      status: 410,
+      headers: { "Content-Type": "text/plain; charset=utf-8" },
+    });
+  }
+
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
 
   const cspDirectives = [

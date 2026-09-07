@@ -72,6 +72,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
             },
             areaServed: "GR",
             description: siteConfig.description,
+            sameAs: [siteConfig.sisterSite.url],
           }}
         />
         <Header />
